@@ -4,3 +4,5 @@
 .Ruserdata
 *.Rproj
 .httr-oauth
+data-testing.Rmd
+data-testing.html

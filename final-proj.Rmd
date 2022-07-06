@@ -8,6 +8,7 @@ date: '2022-07-03'
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(billboard)
+library(scales)
 
 song_data = billboard::spotify_track_data
 
@@ -20,6 +21,7 @@ song_data = song_data |>
   select(year, energy, valence, decade) 
 
 ```
+
 
 ```{r emotion scatterplot, echo = FALSE}
 song_data |>  
@@ -35,8 +37,18 @@ song_data |>
        y = "Energy (Activity or Intensity in the track)")
 ```
 
-```{r}
+```{r test plots ~ equation, echo = FALSE}
+song_data |> 
+  mutate(sonic_anger_index = (((1 - valence) ^ 0.5) * (energy ^ 0.5))) |> 
+  ggplot(aes(year, sonic_anger_index)) +
+  geom_point(alpha = .2) +
+  geom_smooth()
 
+song_data |> 
+  mutate(sonic_calmness_index = ((valence ^ 0.5) * (energy ^ 0.5))) |> 
+  ggplot(aes(year, sonic_calmness_index)) +
+  geom_point(alpha = .2) +
+  geom_smooth()
 ```
 
 

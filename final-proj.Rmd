@@ -37,16 +37,10 @@ song_data |>
        y = "Energy (Activity or Intensity in the track)")
 ```
 
-```{r test plots ~ equation, echo = FALSE}
+```{r sonic indices, echo = FALSE}
 song_data |> 
   mutate(sonic_anger_index = (((1 - valence) ^ 0.5) * (energy ^ 0.5))) |> 
   ggplot(aes(year, sonic_anger_index)) +
-  geom_point(alpha = .2) +
-  geom_smooth()
-
-song_data |> 
-  mutate(sonic_calmness_index = ((valence ^ 0.5) * (energy ^ 0.5))) |> 
-  ggplot(aes(year, sonic_calmness_index)) +
   geom_point(alpha = .2) +
   geom_smooth()
 ```

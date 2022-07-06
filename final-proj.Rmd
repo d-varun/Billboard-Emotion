@@ -1,0 +1,42 @@
+---
+title: "final-proj.Rmd"
+output: html_document
+date: '2022-07-03'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(billboard)
+
+song_data = billboard::spotify_track_data
+
+song_data = song_data |>  
+  mutate(year = as.integer(year)) |> 
+  mutate(decade = if_else(year >= 2000,
+                          paste0(year %/% 10 * 10, "'s"),
+                          paste0((year - 1900) %/% 10 * 10, "'s"))) |> 
+  mutate(across(decade, factor, levels=c("60's","70's","80's", "90's", "2000's", "2010's"))) |> 
+  select(year, energy, valence, decade) 
+
+```
+
+```{r emotion scatterplot, echo = FALSE}
+song_data |>  
+  ggplot(aes(valence, energy, color = decade)) +
+  geom_point(alpha = .2) +
+  facet_wrap(~ decade) +
+  theme_bw() +
+  theme(legend.position = "none", panel.spacing = unit(1, "lines"), 
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0))) +
+  labs(title = "Emotion in the Billboard Top 100 by Decade",
+       subtitle = "Music with low valence and high energy, or 'angry' music,\nhas become increasingly popular since the 1960's",
+       x = "\nValence (Emotional Positivity of the track)",
+       y = "Energy (Activity or Intensity in the track)")
+```
+
+```{r}
+
+```
+
+

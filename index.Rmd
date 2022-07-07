@@ -5,14 +5,96 @@ description: |
 site: distill::distill_website
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(billboard)
+library(rmarkdown)
+library(spotifyr)
 
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
+raw_data = billboard::spotify_track_data
 
-# Learn more about publishing to GitHub Pages at:
-# https://rstudio.github.io/distill/publish_website.html#github-pages
-
+song_data = raw_data |>  
+  mutate(year = as.integer(year)) |> 
+  mutate(decade = if_else(year >= 2000,
+                          paste0(year %/% 10 * 10, "'s"),
+                          paste0((year - 1900) %/% 10 * 10, "'s"))) |> 
+  mutate(across(decade, factor, levels=c("60's","70's","80's", "90's", "2000's", "2010's"))) |> 
+  select(track_name, energy, valence, decade, year) 
 ```
 
+
+## Introduction 
+
+We can all agree that music is constantly changing. New genres and styles emerge constantly, creating experimental and inventive sounds. This project aims to visualize the change in emotion over time in popular music.
+
+First things first, let's take a look at our data, pulled with the `spotifyr` and `billboard` packages.
+
+```{r datacheck, echo = FALSE}
+paged_table(song_data)
+```
+
+At this point, you might be wondering what valence and energy are. Lets go to Spotify for the explanations.
+
+- Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and
+activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has
+high energy, while a Bach prelude scores low on the scale.
+
+- Valence is  measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks
+with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low
+valence sound more negative (e.g. sad, depressed, angry).
+
+So, by these definitions, we can conclude a few things. Tracks with high energy but low valence can be classified as angry, and a track with low energy but high valence could be considered calm, or peaceful. The other two extremes here would belong to sad and happy tracks.
+
+Let's plot it!
+
+## Plotting
+
+```{r emotion scatterplot, echo = FALSE}
+song_data |>  
+  ggplot(aes(valence, energy, color = decade)) +
+  geom_point(alpha = .2) +
+  facet_wrap(~ decade) +
+  theme_bw() +
+  theme(legend.position = "none", panel.spacing = unit(1, "lines"), 
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)), 
+        plot.title = element_text(face = "bold")) +
+  labs(title = "Emotion in the Billboard Top 100 by Decade",
+       subtitle = "Music with low valence and high energy, or 'angry' music,\nhas become increasingly popular since the 1960's",
+       x = "\nValence (Emotional Positivity of the track)",
+       y = "Energy (Activity or Intensity in the track)",
+       caption = "Billboard and Spotify (2022)")
+```
+
+This graph might look a little confusing at first, but let me explain. In each corner of the graphs, lies the extreme for a certain emotion. The top right contains happiness, the top left anger, the bottom left sadness, and the bottom right calmness.
+
+We can see that over the past few decades music has drifted toward our 'angry' corner in the top left. Let's make this trend a little clearer with a formula used by [**Evan Oppenheimer** here](https://medium.com/@evanopp/angriest-death-grips-data-anger-502168c1c2f0).
+
+Sonic Anger Index = sqrt((1 - valence) * energy)
+
+Using this equation, the more angry a song is, the closer our value is to one.
+
+
+```{r sonic indices, echo = FALSE}
+song_data |> 
+  mutate(sonic_anger_index = (((1 - valence) ^ 0.5) * (energy ^ 0.5))) |> 
+  ggplot(aes(year, sonic_anger_index)) +
+  geom_point(alpha = .2) +
+  geom_smooth() +
+  theme_bw() +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)), 
+        plot.title = element_text(face = "bold")) + 
+  coord_cartesian(ylim = c(-0, 1), xlim = c(1959, 2016)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = "Anger in the billboard top 100 by year",
+       subtitle = "Angry music has increased steadily since 1960",
+       x = "Year",
+       y = "Sonic Anger Index",
+       caption = "Billboard and Spotify (2022)")
+```
+
+Here we can see a clear incline in 'angry' music since the 60s!

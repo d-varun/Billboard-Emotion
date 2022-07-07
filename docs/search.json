@@ -2,35 +2,47 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "About",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-07-06T22:09:01-04:00"
+      "contents": "\nAbout Me\nHello! My name is Varun\nDommeti, a Sophomore at Dublin Jerome High School. Some of\nmy interests are programming and music!\nKane’s Free High School\nData Science Bootcamp\n\n\n\n",
+      "last_modified": "2022-07-07T16:52:16-04:00"
     },
     {
       "path": "data-testing.html",
       "title": "data-testing.Rmd",
       "author": [],
       "date": "2022-07-01",
-      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n      \n  \n\n\n\n\n\n\ndata-testing.Rmd\n2022-07-01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2022-07-06T22:09:02-04:00"
+      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\nSources\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n\n  Sources\n\n      \n  \n\n\n\n\n\n\ndata-testing.Rmd\n2022-07-01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-07-07T16:52:17-04:00"
     },
     {
       "path": "final-proj.html",
       "title": "final-proj.Rmd",
       "author": [],
       "date": "2022-07-03",
-      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n      \n  \n\n\n\n\n\n\nfinal-proj.Rmd\n2022-07-03\n\n\n\n\n\n## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2022-07-06T22:09:04-04:00"
+      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\nSources\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n\n  Sources\n\n      \n  \n\n\n\n\n\n\nfinal-proj.Rmd\n2022-07-03\n\n\n\n\n\n## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-07-07T16:52:20-04:00"
     },
     {
       "path": "index.html",
       "title": "Prevalent Emotions in Mainstream Music, by Decade",
       "description": "An exploration of emotions in popular music\n",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-07-06T22:09:04-04:00"
+      "contents": "\nIntroduction\nWe can all agree that music is constantly changing. New genres and\nstyles emerge constantly, creating experimental and inventive sounds.\nThis project aims to visualize the change in emotion over time in\npopular music.\nFirst things first, let’s take a look at our data, pulled with the\nspotifyr and billboard packages.\n\n\n\n\nAt this point, you might be wondering what valence and energy are.\nLets go to Spotify for the explanations.\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual\nmeasure of intensity and activity. Typically, energetic tracks feel\nfast, loud, and noisy. For example, death metal has high energy, while a\nBach prelude scores low on the scale.\nValence is measure from 0.0 to 1.0 describing the musical\npositiveness conveyed by a track. Tracks with high valence sound more\npositive (e.g. happy, cheerful, euphoric), while tracks with low valence\nsound more negative (e.g. sad, depressed, angry).\nSo, by these definitions, we can conclude a few things. Tracks with\nhigh energy but low valence can be classified as angry, and a track with\nlow energy but high valence could be considered calm, or peaceful. The\nother two extremes here would belong to sad and happy tracks.\nLet’s plot it!\nPlotting\n\n\n\nThis graph might look a little confusing at first, but let me\nexplain. In each corner of the graphs, lies the extreme for a certain\nemotion. The top right contains happiness, the top left anger, the\nbottom left sadness, and the bottom right calmness.\nWe can see that over the past few decades music has drifted toward\nour ‘angry’ corner in the top left. Let’s make this trend a little\nclearer with a formula used by Evan\nOppenheimer here.\nSonic Anger Index = sqrt((1 - valence) * energy)\nUsing this equation, the more angry a song is, the closer our value\nis to one.\n\n\n\nHere we can see a clear incline in ‘angry’ music since the 60s!\n\n\n\n",
+      "last_modified": "2022-07-07T16:52:22-04:00"
+    },
+    {
+      "path": "sources.html",
+      "title": "Sources",
+      "description": "Databases and other Sources used for this project.\n",
+      "author": [
+        {
+          "name": "Varun Dommeti",
+          "url": {}
+        }
+      ],
+      "contents": "\nspotifyr\npackage\nspotify api\nbillboard\npackage\nUsing\nData to Find the Angriest Death Grips Song\n\n\n\n",
+      "last_modified": "2022-07-07T16:52:23-04:00"
     }
   ],
   "collections": []

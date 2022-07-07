@@ -72,7 +72,7 @@ song_data |>
        caption = "Billboard and Spotify (2022)")
 ```
 
-This graph might look a little confusing at first, but let me explain. In each corner of the graphs, lies the extreme for a certain emotion. The top right contains happiness, the top left anger, the bottom left sadness, and the bottom right calmness.
+These plots might look a little confusing at first, but let me explain. In each corner of the plots, lies the extreme for a certain emotion. The top right contains happiness, the top left anger, the bottom left sadness, and the bottom right calmness.
 
 We can see that over the past few decades music has drifted toward our 'angry' corner in the top left. Let's make this trend a little clearer with a formula used by [**Evan Oppenheimer** here](https://medium.com/@evanopp/angriest-death-grips-data-anger-502168c1c2f0).
 

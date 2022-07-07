@@ -8,5 +8,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## About Me
 Hello! My name is [**Varun Dommeti**](https://github.com/d-varun), a Sophomore at Dublin Jerome High School. Some of my interests are programming and music!
+For any questions regarding the project, please contact me at vdommeti3@gmail.com!
 
 [Kane’s Free High School Data Science Bootcamp](https://bootcamp.davidkane.info/)

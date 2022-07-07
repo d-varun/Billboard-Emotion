@@ -1,0 +1,37 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-07-06T22:09:01-04:00"
+    },
+    {
+      "path": "data-testing.html",
+      "title": "data-testing.Rmd",
+      "author": [],
+      "date": "2022-07-01",
+      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n      \n  \n\n\n\n\n\n\ndata-testing.Rmd\n2022-07-01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-07-06T22:09:02-04:00"
+    },
+    {
+      "path": "final-proj.html",
+      "title": "final-proj.Rmd",
+      "author": [],
+      "date": "2022-07-03",
+      "contents": "\n\n\n\n\n\n\n\n\nPrevalent Emotions in Mainstream Music, by Decade\n\n\nHome\nAbout\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  About\n\n      \n  \n\n\n\n\n\n\nfinal-proj.Rmd\n2022-07-03\n\n\n\n\n\n## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2022-07-06T22:09:04-04:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Prevalent Emotions in Mainstream Music, by Decade",
+      "description": "An exploration of emotions in popular music\n",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-07-06T22:09:04-04:00"
+    }
+  ],
+  "collections": []
+}

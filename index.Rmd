@@ -53,6 +53,7 @@ So, by these definitions, we can conclude a few things. Tracks with high energy 
 
 Let's plot it!
 
+
 ## Plotting
 
 ```{r emotion scatterplot, echo = FALSE}

@@ -31,11 +31,13 @@ song_data = raw_data |>
 
 We can all agree that music is constantly changing. New genres and styles emerge constantly, creating experimental and inventive sounds. This project aims to visualize the change in emotion over time in popular music.
 
-First things first, let's take a look at our data, pulled with the `spotifyr` and `billboard` packages.
+So let's take a look at our data, pulled with the `spotifyr` and `billboard` packages.
 
 ```{r datacheck, echo = FALSE}
 paged_table(song_data)
 ```
+
+Our data includes all billboard top 100 songs from 1960, to 2015. 
 
 At this point, you might be wondering what valence and energy are. Lets go to Spotify for the explanations.
 

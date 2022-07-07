@@ -77,7 +77,6 @@ Sonic Anger Index = sqrt((1 - valence) * energy)
 
 Using this equation, the more angry a song is, the closer our value is to one.
 
-
 ```{r sonic indices, echo = FALSE}
 song_data |> 
   mutate(sonic_anger_index = (((1 - valence) ^ 0.5) * (energy ^ 0.5))) |> 
@@ -91,10 +90,12 @@ song_data |>
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   labs(title = "Anger in the billboard top 100 by year",
-       subtitle = "Angry music has increased steadily since 1960",
+       subtitle = "Angry music has increased steadily since\n1960 at a rate of about 3.5% per decade",
        x = "Year",
        y = "Sonic Anger Index",
-       caption = "Billboard and Spotify (2022)")
+       caption = "Billboard and Spotify (2022)") 
 ```
 
 Here we can see a clear incline in 'angry' music since the 60s!
+
+

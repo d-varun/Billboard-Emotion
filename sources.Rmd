@@ -2,8 +2,6 @@
 title: "Sources"
 description: |
   Databases and other Sources used for this project.
-author:
-  - name: Varun Dommeti 
 output: distill::distill_article
 ---
 
@@ -11,13 +9,13 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-[spotifyr package](https://www.rdocumentation.org/packages/spotifyr/versions/2.2.3)
+[Spotifyr R package](https://www.rdocumentation.org/packages/spotifyr/versions/2.2.3)
 
-[spotify api](https://developer.spotify.com/)
+[Spotify api](https://developer.spotify.com/)
 
-[billboard package](https://cran.r-project.org/web/packages/billboard/index.html)
+[Billboard R package](https://cran.r-project.org/web/packages/billboard/index.html)
 
-[Using Data to Find the Angriest Death Grips Song](https://medium.com/@evanopp/angriest-death-grips-data-anger-502168c1c2f0)
+["Using Data to Find the Angriest Death Grips Song"](https://medium.com/@evanopp/angriest-death-grips-data-anger-502168c1c2f0)
 
 
 
